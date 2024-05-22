@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class UserDAO {
     public User validateUser(String username, String password) {
         User user = null;
-        String query = "SELECT * FROM users WHERE username = root AND password = 123456";
+        String query = "SELECT * FROM users WHERE username = ? AND password = ?";
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, username);
